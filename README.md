@@ -144,6 +144,11 @@ Seat Comfort: 5
 
 Customer Type: Loyal
 
+<img width="884" height="508" alt="Screenshot 2025-08-28 at 4 59 20 PM" src="https://github.com/user-attachments/assets/c0370f3f-7495-450c-ae54-71b1add57ca5" />
+<img width="231" height="365" alt="Screenshot 2025-08-28 at 4 59 24 PM" src="https://github.com/user-attachments/assets/bfa35058-9360-42bb-b6e9-2415b069842f" />
+<img width="549" height="594" alt="Screenshot 2025-08-28 at 4 59 33 PM" src="https://github.com/user-attachments/assets/f6c7ec73-e737-45c9-be30-50f387b6e2be" />
+<img width="402" height="424" alt="Screenshot 2025-08-28 at 4 59 39 PM" src="https://github.com/user-attachments/assets/7f49a683-c2a3-44e4-a21a-9198aae11c5c" />
+
 
 Class: Economy
 

@@ -1,157 +1,64 @@
-Airline Passenger Satisfaction Interactive Notebook
-Project Overview
-This project is an interactive Jupyter Notebook that allows users to explore and predict airline passenger satisfaction. Users can visualize trends in the dataset and input passenger details to get real-time predictions.
-The notebook combines:
-Exploratory Data Analysis (EDA) with interactive plots.
+# Airline Passenger Satisfaction Interactive Notebook
 
+## Overview
+This project is an interactive Jupyter Notebook for exploring and predicting airline passenger satisfaction. It combines exploratory data analysis, Plotly visualizations, a Random Forest classifier, and `ipywidgets` controls for experimenting with passenger profiles. The emphasis is on making a tabular ML workflow interactive and understandable.
 
-Machine Learning for predicting passenger satisfaction.
+## Motivation
+Interactive notebooks are useful for communicating machine learning results to nontechnical audiences. This project shows how EDA, model evaluation, and prediction interfaces can be combined in one reproducible notebook. It also complements the separate airline satisfaction modeling repo by focusing more on user interaction and exploratory analysis.
 
+## Dataset
+- **Source:** Kaggle Airline Passenger Satisfaction dataset.
+- **File:** `data/airline_satisfaction.csv`
+- **Size:** 25,976 passenger records.
+- **Target variable:** `satisfaction`.
+- **Important features:** passenger demographics, customer type, type of travel, flight distance, cabin class, delay times, and service ratings such as online boarding, seat comfort, inflight entertainment, cleanliness, and baggage handling.
+- **Known limitations:** The dataset is static, public, and benchmark-like. It may not reflect current airline operations, sampling bias, or differences across airlines and regions.
 
-Interactive Widgets using ipywidgets for dynamic input.
+## Methods
+- Loaded and inspected the airline satisfaction dataset.
+- Built interactive categorical and numeric visualizations with Plotly and `ipywidgets`.
+- Preprocessed categorical variables with one-hot encoding.
+- Trained a Random Forest classifier on an 80/20 train/test split.
+- Evaluated the classifier with precision, recall, F1-score, and support.
+- Added widget-based controls for testing passenger profiles.
 
+## Results
+The notebook reports approximately **96% test accuracy** for the Random Forest classifier.
 
+Classification report from the notebook:
 
-Dataset
-Source: Kaggle – Airline Passenger Satisfaction
+| Class | Precision | Recall | F1-score | Support |
+| --- | ---: | ---: | ---: | ---: |
+| `0` | 0.95 | 0.97 | 0.96 | 2890 |
+| `1` | 0.97 | 0.94 | 0.95 | 2289 |
 
+## Key Insights
+- Interactive controls make model behavior easier to inspect than static notebook outputs alone.
+- Passenger satisfaction is strongly associated with service quality ratings and travel context.
+- The Random Forest model performs well on both target classes in the reported split.
+- This notebook is useful as a communication artifact, not just a modeling artifact.
 
-Description: Dataset includes passenger demographics, flight info, and service ratings.
+## Limitations
+- The widget prediction interface is exploratory and should not be treated as a deployed application.
+- The notebook does not yet include cross-validation or hyperparameter tuning.
+- The project does not analyze subgroup robustness or fairness.
+- The model may learn patterns specific to this dataset rather than general airline satisfaction dynamics.
 
+## Future Improvements
+- Add feature importance and partial dependence plots.
+- Compare model predictions across passenger subgroups.
+- Convert the interactive workflow into a small Streamlit app.
+- Add cross-validation and saved model artifacts.
+- Add a short technical note comparing this interactive notebook with the modeling-only repo.
 
-Key Columns:
- Age, Flight Distance, Customer Type, Type of Travel, Class, Inflight wifi service, Seat comfort, Food and drink, Inflight entertainment, Gate location, Baggage handling, Online boarding, Leg room service, Ease of Online booking, On-board service, Checkin service, Cleanliness, Inflight service, Departure/Arrival time convenient, Gender, satisfaction
-
-
-
-Features
-1. Interactive Data Visualization
-Select a categorical feature from a dropdown to see satisfaction counts.
-
-
-Select a numeric feature from a dropdown to see histograms of satisfaction distribution.
-
-
-Uses Plotly for dynamic plots that can be zoomed, hovered, and filtered.
-
-
-2. Model Training
-Trains a Random Forest Classifier on 80% of the dataset.
-
-
-Preprocessing includes:
-
-
-One-hot encoding for categorical features.
-
-
-Passthrough for numeric features.
-
-
-Displays classification report and confusion matrix for model evaluation.
-
-
-3. Interactive Prediction
-Users can adjust sliders for numeric features and dropdowns for categorical features.
-
-
-Predicts if a passenger is satisfied or dissatisfied.
-
-
-Immediate visual feedback for predictions.
-
-
-
-Installation
-Clone the repository:
-
-
-git clone <your-repo-url>
-cd <repo-folder>
-
-Create a virtual environment and install dependencies:
-
-
-conda create -n airline_env python=3.10
-conda activate airline_env
+## How to Run
+```bash
+git clone https://github.com/BobbY-24/Airline-Passenger-Satisfaction-Interactive-Notebook.git
+cd Airline-Passenger-Satisfaction-Interactive-Notebook
+python -m venv .venv
+source .venv/bin/activate  # macOS/Linux
 pip install -r requirements.txt
+jupyter notebook notebooks/airline_passenger_satisfaction_interactive.ipynb
+```
 
-Launch the notebook:
-
-
-jupyter notebook Airline_Satisfaction_Interactive.ipynb
-
-
-Dependencies
-Python 3.10+
-
-
-pandas
-
-
-numpy
-
-
-matplotlib
-
-
-seaborn
-
-
-plotly
-
-
-ipywidgets
-
-
-scikit-learn
-
-
-
-Usage
-Open the notebook in Jupyter or JupyterLab.
-
-
-Run cells in order:
-
-
-Load and clean the dataset.
-
-
-Explore the data with interactive plots.
-
-
-Train the Random Forest model.
-
-
-Use interactive sliders/dropdowns to predict new passenger satisfaction.
-
-
-
-Example Prediction
-Input passenger details:
-Age: 35
-
-
-Flight Distance: 1200
-
-
-Inflight Wifi Service: 4
-
-
-Seat Comfort: 5
-
-
-Customer Type: Loyal
-
-<img width="884" height="508" alt="Screenshot 2025-08-28 at 4 59 20 PM" src="https://github.com/user-attachments/assets/c0370f3f-7495-450c-ae54-71b1add57ca5" />
-<img width="231" height="365" alt="Screenshot 2025-08-28 at 4 59 24 PM" src="https://github.com/user-attachments/assets/bfa35058-9360-42bb-b6e9-2415b069842f" />
-<img width="549" height="594" alt="Screenshot 2025-08-28 at 4 59 33 PM" src="https://github.com/user-attachments/assets/f6c7ec73-e737-45c9-be30-50f387b6e2be" />
-<img width="402" height="424" alt="Screenshot 2025-08-28 at 4 59 39 PM" src="https://github.com/user-attachments/assets/7f49a683-c2a3-44e4-a21a-9198aae11c5c" />
-
-
-Class: Economy
-
-
-Prediction: 😊 Satisfied
-
+Run the notebook cells from top to bottom. The notebook expects the dataset at `data/airline_satisfaction.csv`.

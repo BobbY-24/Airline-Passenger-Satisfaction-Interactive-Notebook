@@ -1,7 +1,7 @@
 # Airline Passenger Satisfaction Interactive Notebook
 
 ## Overview
-This project is an interactive Jupyter Notebook for exploring and predicting airline passenger satisfaction. It combines exploratory data analysis, Plotly visualizations, a Random Forest classifier, and `ipywidgets` controls for experimenting with passenger profiles. The emphasis is on making a tabular ML workflow interactive and understandable.
+I built this as an interactive Jupyter Notebook for exploring and predicting airline passenger satisfaction. It combines exploratory data analysis, Plotly visualizations, a Random Forest classifier, and `ipywidgets` controls for experimenting with passenger profiles. The emphasis is on making a tabular ML workflow interactive and understandable.
 
 ## Motivation
 Interactive notebooks are useful for communicating machine learning results to nontechnical audiences. This project shows how EDA, model evaluation, and prediction interfaces can be combined in one reproducible notebook. It also complements the separate airline satisfaction modeling repo by focusing more on user interaction and exploratory analysis.
@@ -23,7 +23,7 @@ Interactive notebooks are useful for communicating machine learning results to n
 - Added widget-based controls for testing passenger profiles.
 
 ## Results
-The notebook reports approximately **96% test accuracy** for the Random Forest classifier.
+My notebook reports approximately **96% test accuracy** for the Random Forest classifier.
 
 Classification report from the notebook:
 
@@ -40,8 +40,8 @@ Classification report from the notebook:
 
 ## Limitations
 - The widget prediction interface is exploratory and should not be treated as a deployed application.
-- The notebook does not yet include cross-validation or hyperparameter tuning.
-- The project does not analyze subgroup robustness or fairness.
+- I do not yet include cross-validation or hyperparameter tuning.
+- I do not analyze subgroup robustness or fairness.
 - The model may learn patterns specific to this dataset rather than general airline satisfaction dynamics.
 
 ## Future Improvements
@@ -61,4 +61,4 @@ pip install -r requirements.txt
 jupyter notebook notebooks/airline_passenger_satisfaction_interactive.ipynb
 ```
 
-Run the notebook cells from top to bottom. The notebook expects the dataset at `data/airline_satisfaction.csv`.
+Run my notebook cells from top to bottom. I expect the dataset at `data/airline_satisfaction.csv`.
